@@ -5,10 +5,16 @@ def makeRowSeq(row: Int) =
     padding + prod
   }
 
-def printMultiTable(): Unit = {
-  for (i <- 1 to 10) {
-    print(makeRowSeq(i).mkString)
+def makeRow(row: Int) = makeRowSeq(row).mkString
 
-    println()
-  }
+def multiTable() = {
+  val tableSeq =
+    for (row <- 1 to 10)
+      yield makeRow(row)
+
+  tableSeq.mkString("\n")
+}
+
+def printMultiTable(): Unit = {
+  print(multiTable())
 }
