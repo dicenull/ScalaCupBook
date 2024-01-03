@@ -5,13 +5,8 @@ def printMultiTable(): Unit = {
 
       val prod = (i * j).toString
 
-      var k = prod.length
-
-      while (k < 4) {
-        print(" ")
-        k += 1
-      }
-      print(prod)
+      val padding = " " * (4 - prod.length)
+      print(padding + prod)
     }
 
     println()
