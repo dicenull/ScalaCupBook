@@ -1,7 +1,7 @@
 abstract class Element {
   def contents: Array[String]
-  def height: Int = contents.length
   def width: Int = if (height == 0) 0 else contents(0).length
+  def height: Int = contents.length
 
   def above(that: Element): Element = {
     new ArrayElement(this.contents ++ that.contents)
@@ -14,6 +14,8 @@ abstract class Element {
       } yield line1 + line2
     )
   }
+
+  override def toString(): String = contents mkString "\n"
 }
 
 class ArrayElement(val contents: Array[String]) extends Element
